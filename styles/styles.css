@@ -1,0 +1,112 @@
+*, *::after, *::before {
+    box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+a {
+    all: unset;
+}
+
+body {
+    display: grid;
+    place-items: center;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+article {
+    width: 25em;
+    height: 35em;
+    background-color: sandybrown;
+    padding: 2em;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+article section {
+    display: flex;
+    gap: 1em;
+}
+
+article a {
+    background-color: black;
+    color: white;
+    padding: 1em;
+}
+img {
+    width: 20em;
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.25em;
+}
+
+[language-type] {
+    display: inline-block;
+}
+[language-type="HTML"] {
+    background-color: #e34c26;
+}
+
+[language-type="CSS"] {
+    background-color: #2965f1;
+}
+
+[language-type="JavaScript"] {
+    background-color: #f0db4f;
+}
+
+/* background */
+
+div {
+    top: 0;
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+
+ul {
+    display: flex;
+    width: 100%;
+    height: 10%;
+}
+
+li {
+    border: 1px solid black;
+    width: 10%;
+    height: 100%;
+    background-color: brown;
+    border-radius: 2px;
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, .3);
+}
+
+ul:nth-of-type(even) li:first-of-type, ul:nth-of-type(even) li:last-of-type{
+    width: 5%;
+}
+
+@media (max-width: 600px) {
+    article {
+        width: 20em;
+    }
+
+    li {
+        width: 20%;
+    }
+    li:nth-of-type(even) {
+        display: none;
+    }
+    ul:nth-of-type(even) li:first-of-type, ul:nth-of-type(even) li:last-of-type {
+        width: 10%;
+    }
+}
