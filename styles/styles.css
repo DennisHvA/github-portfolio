@@ -5,8 +5,14 @@
     list-style-type: none;
 }
 
-a {
+/* general */
+
+a, h1, h2 {
     all: unset;
+}
+
+a {
+    cursor: pointer;
 }
 
 body {
@@ -15,44 +21,114 @@ body {
     width: 100vw;
     height: 100vh;
     position: relative;
+
+    font-family: "Oswald";
 }
+
+/* poster */
 
 article {
-    width: 25em;
+    position: relative;
     height: 35em;
-    background-color: sandybrown;
-    padding: 2em;
-
     display: flex;
     flex-direction: column;
-    gap: 0.5em;
 }
 
-article section {
+article::before, article::after {
+    content: "";
+    width: 1em;
+    height: 2em;
+    background-color: white;
+    position: absolute;
+    mix-blend-mode: soft-light;
+    top: -10px;
+    transform: rotate(45deg);
+}
+
+article::before {
+    left: 0;
+}
+
+article::after {
+    right: 0;
+    transform: rotate(-45deg);
+}
+
+/* profile */
+
+#profile {
+    width: 25em;
+    background: linear-gradient(0deg, white 10em, #303131 10em);
+}
+
+#profile h1, #profile h2, #profile section {
     display: flex;
     gap: 1em;
+    margin-left: 2rem;
 }
 
-article a {
-    background-color: black;
-    color: white;
+#profile img {
+    width: 21em;
+    margin: 2em;
+    background-color: white;
+    border-radius: 50%;
+}
+
+#profile h1 {
+    color: #fbaf17;
+    font-weight: 500;
+    font-size: 2.5em;
+}
+
+#profile h2 {
+    color: #303131;
+    font-weight: 200;
+    font-size: 1.5em;
+}
+
+#profile a:hover {
+    color: #fbaf17;
+}
+
+/* repos  */
+
+#repos {
+    background-color: #303131;
+    width: 55em;
     padding: 1em;
-}
-img {
-    width: 20em;
-}
-
-h1 {
-    font-size: 2em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
-h2 {
-    font-size: 1.25em;
+#repos h2 {
+    color: #fbaf17;
+    font-weight: 500;
+    font-size: 1.5em;
+}
+
+#repos p {
+    color: white;
+}
+
+#repos a {
+    color: white;
+}
+
+#repos a:hover {
+    color: #fbaf17;
+}
+
+#repos section section {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
 }
 
 [language-type] {
     display: inline-block;
+    color: white;
 }
+
 [language-type="HTML"] {
     background-color: #e34c26;
 }
@@ -68,12 +144,12 @@ h2 {
 /* background */
 
 div {
+    z-index: -1;
     top: 0;
     position: absolute;
-    z-index: -1;
     width: 100%;
     height: 100%;
-    background-color: black;
+    background-color: silver;
 }
 
 ul {
@@ -83,12 +159,12 @@ ul {
 }
 
 li {
-    border: 1px solid black;
+    border: 2px solid silver;
     width: 10%;
     height: 100%;
-    background-color: brown;
     border-radius: 2px;
-    box-shadow: inset 0 2px 6px rgba(0, 0, 0, .3);
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, .5);
+    background: linear-gradient(-30deg, #b00 50%, #d00 50%);
 }
 
 ul:nth-of-type(even) li:first-of-type, ul:nth-of-type(even) li:last-of-type{
@@ -96,10 +172,23 @@ ul:nth-of-type(even) li:first-of-type, ul:nth-of-type(even) li:last-of-type{
 }
 
 @media (max-width: 600px) {
-    article {
+    #profile {
         width: 20em;
+        height: 32em;
+        background: linear-gradient(0deg, white 12em, #303131 12em);
+    }
+    #profile img {
+        width: 16em;
     }
 
+    #repos {
+        margin-top: 7em;
+        display: flex;
+        flex-direction: column;
+        height: 66em;
+        width: 20em;
+        gap: 1em;
+    }
     li {
         width: 20%;
     }

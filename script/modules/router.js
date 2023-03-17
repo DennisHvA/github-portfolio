@@ -6,7 +6,7 @@ export function router() {
             renderProfile();
             console.log("home")
         },
-        ':id': test => {
+        'repos': () => {
             renderRepos();
             console.log("detail")
         }
