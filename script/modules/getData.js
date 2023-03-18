@@ -1,5 +1,5 @@
 import { Octokit } from "https://cdn.skypack.dev/@octokit/rest";
-import { KEYS } from "../keys.js";
+import { KEYS } from "../../keys.js";
 
 const octokit = new Octokit({
     auth: KEYS
